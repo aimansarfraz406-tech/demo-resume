@@ -3,62 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Portfolio – PECA Law Project</title>
+    <title>Aiman Sarfraz | CS Portfolio</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #e2e8f0;
+            line-height: 1.5;
+            padding: 2rem 1rem;
         }
+
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        h1 {
-            color: #2c3e50;
+
+        /* Card style */
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        a {
-            color: #3498db;
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Profile section */
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8b5cf6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c084fc, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #334155;
+            padding: 0.25rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #e2e8f0;
+        }
+
+        .badge i {
+            font-size: 0.875rem;
+        }
+
+        /* Skills chips */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .skill-chip {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        .skill-chip:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Colorful buttons */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
             text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: white;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
         }
-        .content {
-            text-align: left;
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Section headers */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 1rem;
+        }
+
+        /* Contact links */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #c084fc;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #64748b;
+            font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.5rem;
+            }
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section-title {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="@iamn" alt="Profile photo" style="width:300px; border-radius:50%; display:block; margin:0 auto 20px auto;">
-        <h1>👋 Welcome to My CS Portfolio</h1>
-        <p><strong>BS Computer Science – Professional Practices Capstone</strong></p>
-        
-        <div class="content">
-            <h2>📌 Featured Project</h2>
-            <p><strong>PECA Law in Pakistan: Effectiveness and Challenges</strong></p>
-            <p>A technical and ethical analysis of the Prevention of Electronic Crimes Act (2016 & 2022 amendments), focusing on content filtering, encryption, enforcement gaps, and developer dilemmas.</p>
-            
-            <p>📄 <a href="peca-analysis.md">Read the full PECA Law analysis document →</a></p>
-            
-            <hr>
-            
-            <h3>🔧 About This Portfolio</h3>
-            <p>This GitHub Pages site hosts my capstone project for the Professional Practices course. It demonstrates:</p>
-            <ul>
-                <li>Legal-tech policy analysis</li>
-                <li>Ethical reasoning for software engineers</li>
-                <li>Basic GitHub Pages deployment</li>
-            </ul>
-            
-            <p><em>Last updated: April 2026</em></p>
+        <!-- Profile Card -->
+        <div class="card">
+            <div class="profile">
+                <img src="iman.jpeg" alt="Aiman Sarfraz" class="profile-img" onerror="this.src='https://via.placeholder.com/120x120?text=Aiman'">
+                <div class="profile-info">
+                    <h1>Aiman Sarfraz</h1>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                        <span class="badge"><i class="fas fa-map-marker-alt"></i> Rawalpindi, Pakistan</span>
+                        <span class="badge"><i class="fas fa-graduation-cap"></i> BS CS, FJWU</span>
+                        <span class="badge"><i class="fas fa-code"></i> 4th Semester</span>
+                    </div>
+                    <p style="color: #cbd5e1; max-width: 600px;">
+                        Passionate about technology law, ethical software design, and building impactful digital solutions. 
+                        Currently exploring the intersection of Computer Science and professional practices.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Card (Location + Student Info extended) -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-user-astronaut" style="color: #8b5cf6;"></i>
+                <span>About Me</span>
+            </div>
+            <p style="margin-bottom: 1rem;">
+                I'm a 4th-semester Computer Science student at Fatima Jinnah Women University (FJWU), Rawalpindi. 
+                My journey in tech is driven by curiosity—whether it's understanding how laws like PECA shape software 
+                development or building user-friendly applications. I believe that great developers don't just write code; 
+                they solve real problems responsibly.
+            </p>
+            <p>
+                📍 <strong>Location:</strong> Rawalpindi, Pakistan<br>
+                🎓 <strong>Status:</strong> BS Computer Science Student | Semester 4<br>
+                💡 <strong>Interests:</strong> Cyber Law, Ethical Tech, Web Development, AI Ethics
+            </p>
+        </div>
+
+        <!-- Technical Skills with colorful chips -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-cogs" style="color: #10b981;"></i>
+                <span>Technical Skills</span>
+            </div>
+            <div class="skills-grid">
+                <span class="skill-chip">C</span>
+                <span class="skill-chip">C++</span>
+                <span class="skill-chip">Java</span>
+                <span class="skill-chip">Python (Learning)</span>
+                <span class="skill-chip">HTML5 & CSS3</span>
+                <span class="skill-chip">JavaScript (Basics)</span>
+                <span class="skill-chip">Git & GitHub</span>
+                <span class="skill-chip">OOP</span>
+                <span class="skill-chip">File Handling</span>
+                <span class="skill-chip">Problem Solving</span>
+            </div>
+        </div>
+
+        <!-- Featured Project: PECA Law -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-gavel" style="color: #f59e0b;"></i>
+                <span>Featured Project: PECA Law Analysis</span>
+            </div>
+            <p><strong>Prevention of Electronic Crimes Act (PECA) – Effectiveness & Challenges</strong></p>
+            <p style="margin: 0.75rem 0;">
+                A comprehensive technical and ethical analysis of Pakistan's cybercrime law, focusing on content filtering, 
+                encryption dilemmas, enforcement gaps, and the developer's ethical responsibilities.
+            </p>
+            <div class="btn-group">
+                <a href="peca-analysis.md" class="btn btn-primary"><i class="fas fa-file-alt"></i> Read Full Analysis</a>
+                <a href="#" class="btn btn-secondary"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+
+        <!-- Contact & Social Links -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-paper-plane" style="color: #ec4899;"></i>
+                <span>Let's Connect</span>
+            </div>
+            <div class="contact-links">
+                <a href="https://github.com/aimansarfraz406-tech" class="contact-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/aiman-sarfraz-4a1a75401/" class="contact-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="mailto:aimansarfraz@example.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Aiman Sarfraz | Built with <i class="fas fa-heart" style="color: #ec4899;"></i> for Capstone Project</p>
         </div>
     </div>
 </body>
